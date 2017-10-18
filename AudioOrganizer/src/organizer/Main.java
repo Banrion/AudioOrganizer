@@ -1,10 +1,42 @@
 package organizer;
 
-public class Main {
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		Button btn = new Button();
+		btn.setText("Say 'Hello Peeps'");
+		btn.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				System.out.println("Hello Peeps...!");
+			}
+		});
+		StackPane root = new StackPane();
+		root.getChildren().add(btn);
+		
+		Scene scene = new Scene(root, 1000, 600);
+		
+		primaryStage.setTitle("Hello World!");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 		Uploader.Greeting();
 		Perceptron.Greeting();
-		Orgaizer.Greeting();
+		Organizer.Greeting();
+		launch(args);
 	}
+
 }

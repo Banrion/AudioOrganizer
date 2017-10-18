@@ -1,7 +1,7 @@
 package organizer;
 
-public class Orgaizer {
-	public Orgaizer() {
+public class Organizer {
+	public Organizer() {
 		// TODO Auto-generated constructor stub
 	}
 	
