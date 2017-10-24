@@ -1,28 +1,36 @@
 package organizer;
 
+import java.io.File;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application {	
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-		Button btn = new Button();
-		btn.setText("Say 'Hello Peeps'");
-		btn.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
+	public void start(final Stage primaryStage) throws Exception {
+		Button chooseFileBtn = new Button();
+		chooseFileBtn.setText("Load a Music File");
+		
+		final FileChooser fileChooser = new FileChooser();
+		
+		chooseFileBtn.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
-				System.out.println("Hello Peeps...!");
+				Uploader.configureFileChooser(fileChooser);
+                File file = fileChooser.showOpenDialog(primaryStage);
+                
+                if (file != null) {
+                    Uploader.openFile(file);
+                }
 			}
 		});
+		
 		StackPane root = new StackPane();
-		root.getChildren().add(btn);
+		root.getChildren().add(chooseFileBtn);
 		
 		Scene scene = new Scene(root, 1000, 600);
 		
@@ -32,11 +40,6 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Hello World!");
-		Uploader.Greeting();
-		Perceptron.Greeting();
-		Organizer.Greeting();
 		launch(args);
 	}
-
 }

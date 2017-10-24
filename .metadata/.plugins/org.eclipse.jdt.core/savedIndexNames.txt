@@ -11,8 +11,8 @@ INDEX VERSION 1.126+C:\Users\Chris\Desktop\Codes\Java\AudioOrganizer\.metadata\.
 3145607036.index
 1686655237.index
 189530877.index
-4005617011.index
 2075892729.index
+4005617011.index
 1924480154.index
 134360950.index
 4062329064.index
