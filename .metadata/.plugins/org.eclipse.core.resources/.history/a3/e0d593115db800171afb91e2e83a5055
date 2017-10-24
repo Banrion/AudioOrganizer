@@ -17,24 +17,23 @@ public class Main extends Application {
 	public void start(final Stage primaryStage) throws Exception {
 		Button chooseFileBtn = new Button();
 		chooseFileBtn.setText("Load a Music File");
+		TextField textField = new TextField ();
 		final FileChooser fileChooser = new FileChooser();
-		final TextField textField = new TextField ();
 		
 		chooseFileBtn.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
-				textField.clear();
 				Uploader.configureFileChooser(fileChooser);
                 File file = fileChooser.showOpenDialog(primaryStage);
                 
                 if (file != null) {
                     Uploader.openFile(file);
-                    printLog(textField, file);
                 }
 			}
 		});
 		
 		StackPane root = new StackPane();
-		root.getChildren().addAll(textField, chooseFileBtn);
+		root.getChildren().add(textField);
+		root.getChildren().add(chooseFileBtn);
 		
 		Scene scene = new Scene(root, 1000, 600);
 		
@@ -42,14 +41,6 @@ public class Main extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
-	 private void printLog(TextField textField, File file) {
-		 if (file == null) {
-			 return;
-		 }
-		 
-		 textField.appendText(file.getAbsolutePath());
-	 }
 
 	public static void main(String[] args) {
 		launch(args);

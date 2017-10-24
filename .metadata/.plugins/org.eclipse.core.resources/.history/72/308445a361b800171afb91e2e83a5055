@@ -7,7 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -19,6 +22,7 @@ public class Main extends Application {
 		chooseFileBtn.setText("Load a Music File");
 		final FileChooser fileChooser = new FileChooser();
 		final TextField textField = new TextField ();
+		textField.setMinSize(50,500);
 		
 		chooseFileBtn.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
