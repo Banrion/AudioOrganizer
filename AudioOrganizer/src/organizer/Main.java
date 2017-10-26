@@ -5,9 +5,13 @@ import java.io.File;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -32,13 +36,17 @@ public class Main extends Application {
                 }
 			}
 		});
-		
-		StackPane root = new StackPane();
-		root.getChildren().addAll(textField, chooseFileBtn);
-		
-		Scene scene = new Scene(root, 1000, 600);
-		
+
+		GridPane root = new GridPane();
+		root.add(textField, 0, 0);
+		root.add(chooseFileBtn, 0, 1);
+//		root.getChildren().addAll(textField, chooseFileBtn);
+		root.setPadding(new Insets(15));
+
+	     BorderPane borderPane = new BorderPane();
+	     borderPane.setCenter(root);
 		primaryStage.setTitle("Hello World!");
+		Scene scene = new Scene(borderPane, 1000, 600);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
